@@ -28,7 +28,7 @@ const AppRoutes = () => {
           path="/home"
           element={
             <UserProtectRoute>
-              <Home />
+              <Home/>
               <BottomNav />
             </UserProtectRoute>
           }
