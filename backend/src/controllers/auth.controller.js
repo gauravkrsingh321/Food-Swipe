@@ -87,7 +87,7 @@ async function loginUser(req, res) {
     res.cookie("user_token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+       sameSite: "None",   // allows cross-origin
     });
 
     res.status(200).json({
@@ -110,7 +110,7 @@ function logoutUser(req, res) {
     res.clearCookie("user_token", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+       sameSite: "None",   // allows cross-origin
     });
     res.status(200).json({
       message: "User logged out successfully",
@@ -209,7 +209,7 @@ async function loginFoodPartner(req, res) {
      res.cookie("partner_token", token, {
        httpOnly: true,
        secure: process.env.NODE_ENV === "production",
-       sameSite: "strict",
+        sameSite: "None",   // allows cross-origin
      });
  
      res.status(200).json({
@@ -233,7 +233,7 @@ function logoutFoodPartner(req, res) {
       res.clearCookie("partner_token",{
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "strict",
+         sameSite: "None",   // allows cross-origin
       });
       res.status(200).json({
           message: "Food partner logged out successfully"
