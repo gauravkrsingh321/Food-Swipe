@@ -15,7 +15,7 @@ const CommentDrawer = ({ foodId, isOpen, onClose }) => {
     const fetchComments = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://food-swipe-1.onrender.com/api/food/comments/${foodId}`, { withCredentials: true });
+        const res = await axios.get(`https://food-swipe.onrender.com/api/food/comments/${foodId}`, { withCredentials: true });
         if (res.data.success) setComments(res.data.comments);
       } catch (err) {
         console.error("Error fetching comments", err);
@@ -31,7 +31,7 @@ const CommentDrawer = ({ foodId, isOpen, onClose }) => {
     if (!text.trim()) return;
     try {
       console.log("Sending comment", { text, foodId });
-      const res = await axios.post(`https://food-swipe-1.onrender.com/api/food/comment/${foodId}`, { text }, { withCredentials: true });
+      const res = await axios.post(`https://food-swipe.onrender.com/api/food/comment/${foodId}`, { text }, { withCredentials: true });
       setComments((prev) => [res.data.comment, ...prev]);
       setText("");
     } catch (err) {
@@ -41,7 +41,7 @@ const CommentDrawer = ({ foodId, isOpen, onClose }) => {
 
   const handleDeleteComment = async (commentId) => {
     try {
-       await axios.delete(`https://food-swipe-1.onrender.com/api/food/comment/${commentId}`, { withCredentials: true });
+       await axios.delete(`https://food-swipe.onrender.com/api/food/comment/${commentId}`, { withCredentials: true });
         // filter out the deleted comment from state
     setComments((prev) => prev.filter((c) => c._id !== commentId));
     } catch (err) {

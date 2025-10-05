@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 app.use(cors({
-    origin: "https://food-swipe-2.onrender.com",
+    origin: "https://food-swipe-frontend.onrender.com",
     credentials: true
 }));
 app.use(cookieParser());

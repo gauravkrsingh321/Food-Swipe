@@ -8,7 +8,7 @@ const FoodPartnerProtectRoute = ({children}) => {
   
     const checkFoodPartner = async () => {
       try {
-        const res = await axios.get("https://food-swipe-1.onrender.com/api/auth/food-partner/check", {
+        const res = await axios.get("https://food-swipe.onrender.com/api/auth/food-partner/check", {
           withCredentials: true,
         });
         // console.log(res.data.foodPartner)

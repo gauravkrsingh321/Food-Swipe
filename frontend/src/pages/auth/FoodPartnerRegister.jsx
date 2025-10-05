@@ -41,7 +41,7 @@ const FoodPartnerRegister = () => {
 
   try {
     const response = await axios.post(
-      "https://food-swipe-1.onrender.com/api/auth/food-partner/register",
+      "https://food-swipe.onrender.com/api/auth/food-partner/register",
       {
         name: businessName,
         contactName,
