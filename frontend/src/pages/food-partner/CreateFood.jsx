@@ -54,7 +54,7 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        await axios.post("https://food-swipe.onrender.com/api/food", formData, {
+        await axios.post("https://food-swipe-1.onrender.com/api/food", formData, {
             withCredentials: true,
         })
         setName('');

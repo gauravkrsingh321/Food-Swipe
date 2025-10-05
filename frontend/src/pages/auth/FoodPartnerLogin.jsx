@@ -13,7 +13,7 @@ const FoodPartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value.trim();
 
-    const response = await axios.post("https://food-swipe.onrender.com/api/auth/food-partner/login", {
+    const response = await axios.post("https://food-swipe-1.onrender.com/api/auth/food-partner/login", {
       email,
       password
     }, { withCredentials: true });
