@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router';
 
 const FoodPartnerLogin = () => {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const navigate = useNavigate();
 
@@ -14,7 +13,7 @@ const FoodPartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value.trim();
 
-    const response = await axios.post(`${baseUrl}/api/auth/food-partner/login`, {
+    const response = await axios.post("https://food-swipe-frontend.onrender.com/api/auth/food-partner/login", {
       email,
       password
     }, { withCredentials: true });

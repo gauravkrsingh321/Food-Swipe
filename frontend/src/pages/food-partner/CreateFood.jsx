@@ -3,13 +3,13 @@ import axios from 'axios';
 import '../../styles/create-food.css';
 
 const CreateFood = () => {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const [ name, setName ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ videoFile, setVideoFile ] = useState(null);
     const [ videoURL, setVideoURL ] = useState('');
     const [ fileError, setFileError ] = useState('');
     const fileInputRef = useRef(null);
+
 
     useEffect(() => {
         if (!videoFile) {
@@ -54,11 +54,9 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        const response = await axios.post(`${baseUrl}/api/food`, formData, {
+        await axios.post("https://food-swipe-frontend.onrender.com/api/food", formData, {
             withCredentials: true,
         })
-
-        console.log(response.data);
         setName('');
          setDescription(''); 
          setVideoURL("")

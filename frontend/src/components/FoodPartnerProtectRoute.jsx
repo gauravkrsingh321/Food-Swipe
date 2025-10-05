@@ -7,9 +7,8 @@ const FoodPartnerProtectRoute = ({children}) => {
   const [loading, setLoading] = useState(true);
   
     const checkFoodPartner = async () => {
-      const baseUrl = import.meta.env.VITE_API_BASE_URL;
       try {
-        const res = await axios.get(`${baseUrl}/api/auth/food-partner/check`, {
+        const res = await axios.get("https://food-swipe-frontend.onrender.com/api/auth/food-partner/check", {
           withCredentials: true,
         });
         // console.log(res.data.foodPartner)

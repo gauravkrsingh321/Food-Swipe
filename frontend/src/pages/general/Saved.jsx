@@ -6,7 +6,6 @@ import ReelFeed from '../../components/ReelFeed'
 import { useNavigate } from 'react-router'
 
 const Saved = () => {
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const [ videos, setVideos ] = useState([]);
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate();
@@ -14,7 +13,7 @@ const Saved = () => {
     useEffect(() => {
     const fetchSaved = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/api/food/allSave`, {
+        const res = await axios.get('https://food-swipe-frontend.onrender.com/api/food/allSave', {
           withCredentials: true,
         })
         const savedFoods = res.data.savedFoods.map((item) => ({
@@ -31,13 +30,13 @@ const Saved = () => {
       }
     }
     fetchSaved()
-  }, [baseUrl])
+  }, [])
 
 
 
     // const removeSaved = async (item) => {
     //     try {
-    //         await axios.post(`${baseUrl}/api/food/save`, { foodId: item._id }, { withCredentials: true })
+    //         await axios.post("http://localhost:3000/api/food/save", { foodId: item._id }, { withCredentials: true })
     //         setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: Math.max(0, (v.savesCount ?? 1) - 1) } : v))
     //     } catch {
     //         // noop

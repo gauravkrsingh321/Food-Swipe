@@ -4,12 +4,11 @@ import '../../styles/reels.css'
 import ReelFeed from '../../components/ReelFeed'
 
 const Home = () => {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const [ videos, setVideos ] = useState([])
     // Autoplay behavior is handled inside ReelFeed
 
     useEffect(() => {
-        axios.get(`${baseUrl}/api/food`, { withCredentials: true })
+        axios.get("https://food-swipe-frontend.onrender.com/api/food", { withCredentials: true })
             .then(response => {
 
                 console.log(response.data);
@@ -19,13 +18,13 @@ const Home = () => {
             .catch(() => { 
                 console.log("error in fetching food")
              })
-    }, [baseUrl])
+    }, [])
 
     // Using local refs within ReelFeed; keeping map here for dependency parity if needed
 
     async function likeVideo(item) {
 
-        const response = await axios.post(`${baseUrl}/api/food/like`, { foodId: item._id }, {withCredentials: true})
+        const response = await axios.post("https://food-swipe-frontend.onrender.com/api/food/like", { foodId: item._id }, {withCredentials: true})
 
         if(response.data.like){
             console.log("Video liked");
@@ -38,7 +37,7 @@ const Home = () => {
     }
 
     async function saveVideo(item) {
-        const response = await axios.post(`${baseUrl}/api/food/save`, { foodId: item._id }, { withCredentials: true })
+        const response = await axios.post("https://food-swipe-frontend.onrender.com/api/food/save", { foodId: item._id }, { withCredentials: true })
         
         if(response.data.save){
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))

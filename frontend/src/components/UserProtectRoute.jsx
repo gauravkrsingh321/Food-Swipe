@@ -7,9 +7,9 @@ const UserProtectRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const checkUser = async () => {
-    const baseUrl = import.meta.env.VITE_API_BASE_URL;
+    
     try {
-      const res = await axios.get(`${baseUrl}/api/auth/user/check`, {
+      const res = await axios.get("https://food-swipe-frontend.onrender.com/api/auth/user/check", {
         withCredentials: true,
       });
       // console.log(res.data.user)
