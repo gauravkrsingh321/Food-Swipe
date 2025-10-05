@@ -13,7 +13,7 @@ const Saved = () => {
     useEffect(() => {
     const fetchSaved = async () => {
       try {
-        const res = await axios.get('https://food-swipe-frontend.onrender.com/api/food/allSave', {
+        const res = await axios.get('https://food-swipe.onrender.com/api/food/allSave', {
           withCredentials: true,
         })
         const savedFoods = res.data.savedFoods.map((item) => ({

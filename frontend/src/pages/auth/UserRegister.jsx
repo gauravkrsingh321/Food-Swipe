@@ -34,7 +34,7 @@ const UserRegister = () => {
 
   try {
     const response = await axios.post(
-      "https://food-swipe-frontend.onrender.com/api/auth/user/register",
+      "https://food-swipe.onrender.com/api/auth/user/register",
       {
         fullName: firstName + " " + lastName,
         email,

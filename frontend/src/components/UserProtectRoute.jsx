@@ -9,7 +9,7 @@ const UserProtectRoute = ({ children }) => {
   const checkUser = async () => {
     
     try {
-      const res = await axios.get("https://food-swipe-frontend.onrender.com/api/auth/user/check", {
+      const res = await axios.get("https://food-swipe.onrender.com/api/auth/user/check", {
         withCredentials: true,
       });
       // console.log(res.data.user)
