@@ -1,17 +1,15 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import '../../styles/create-food.css';
-import { useNavigate } from 'react-router';
 
 const CreateFood = () => {
+    const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const [ name, setName ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ videoFile, setVideoFile ] = useState(null);
     const [ videoURL, setVideoURL ] = useState('');
     const [ fileError, setFileError ] = useState('');
     const fileInputRef = useRef(null);
-
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (!videoFile) {
@@ -56,14 +54,16 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        const response = await axios.post("https://food-swipe.onrender.com/api/food", formData, {
+        const response = await axios.post(`${baseUrl}/api/food`, formData, {
             withCredentials: true,
         })
 
         console.log(response.data);
-        navigate("/"); // Redirect to home or another page after successful creation
-        // Optionally reset
-        // setName(''); setDescription(''); setVideoFile(null);
+        setName('');
+         setDescription(''); 
+         setVideoURL("")
+         setVideoFile(null);
+         setFileError("")
     };
 
     const isDisabled = useMemo(() => !name.trim() || !videoFile, [ name, videoFile ]);

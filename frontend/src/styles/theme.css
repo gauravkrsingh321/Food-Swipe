@@ -53,6 +53,9 @@ body {
   color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   line-height: 1.4;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 a {

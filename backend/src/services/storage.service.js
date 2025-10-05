@@ -14,10 +14,8 @@ async function uploadFile(file, fileName) {
         file: file, // required
         fileName: fileName, // required
     })
-
     return result; // Return the URL of the uploaded file
 }
-
 module.exports = {
     uploadFile
 }

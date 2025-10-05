@@ -1,9 +1,10 @@
 import React from 'react';
 import '../../styles/auth-shared.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const UserLogin = () => {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const navigate = useNavigate();
 
@@ -13,14 +14,14 @@ const UserLogin = () => {
     const email = e.target.email.value.trim();
     const password = e.target.password.value.trim();
 
-    const response = await axios.post("https://food-swipe.onrender.com/api/auth/user/login", {
+    const response = await axios.post(`${baseUrl}/api/auth/user/login`, {
       email,
       password
     }, { withCredentials: true });
 
     console.log(response.data);
 
-    navigate("/"); // Redirect to home after login
+    navigate("/home"); //Redirect to home after login
 
   };
 
@@ -43,7 +44,7 @@ const UserLogin = () => {
           <button className="auth-submit" type="submit">Sign In</button>
         </form>
         <div className="auth-alt-action">
-          New here? <a href="/user/register">Create account</a>
+          New here? <Link to="/user/register">Create account</Link>
         </div>
       </div>
     </div>

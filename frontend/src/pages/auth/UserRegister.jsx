@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 const UserRegister = () => {
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
     const navigate = useNavigate();
 
@@ -34,7 +35,7 @@ const UserRegister = () => {
 
   try {
     const response = await axios.post(
-      "https://food-swipe.onrender.com/api/auth/user/register",
+      `${baseUrl}/api/auth/user/register`,
       {
         fullName: firstName + " " + lastName,
         email,
@@ -44,7 +45,7 @@ const UserRegister = () => {
     );
 
     console.log(response.data);
-    navigate("/");
+    navigate("/home");
   } catch (err) {
     console.error(err);
     alert(err.response?.data?.message || "Registration failed");
